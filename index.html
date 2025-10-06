@@ -12,24 +12,11 @@
     <app-button>Click me</app-button>
     <app-button>Click </app-button>
   </div>
-  <script>
+  <script type="module">
+    import AppButton from './js/components/AppButton.js';
     let app = {
       components: {
-        'app-button':{
-          template: `
-            <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" :disabled="processing">
-              <slot />
-            </button>
-          `,
-          mounted(){
-            console.log('button mounted')
-          },
-          data () {
-            return {
-              processing: false
-            }
-          },
-        },
+        'app-button': AppButton,
       }
     }
     Vue.createApp(app).mount('#app');
