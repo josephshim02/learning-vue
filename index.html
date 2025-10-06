@@ -9,53 +9,27 @@
 <body class="h-full grid place-items-center">
   
   <div id="app">
-    <section v-show="inProgressAssignments.length">
-      <h2 class="font-bold mb-2">In progress</h2>
-      <ul>
-        <li 
-          v-for="assignment in inProgressAssignments" 
-          :key="assignment.id"
-        >
-          <label>
-            {{assignment.name}}
-            <input type="checkbox" v-model="assignment.completed">
-          </label>
-        </li>
-      </ul>
-    </section> 
-    <section v-show="completedAssignments.length" class="mt-8">
-      <h2 class="font-bold mb-2">Completed</h2>
-      <ul>
-        <li 
-          v-for="assignment in completedAssignments" 
-          :key="assignment.id"
-        >
-          <label>
-            {{assignment.name}}
-            <input type="checkbox" v-model="assignment.completed">
-          </label>
-        </li>
-      </ul>
-    </section> 
+    <app-button>Click me</app-button>
+    <app-button>Click </app-button>
   </div>
   <script>
     let app = {
-      data() {
-        return {
-          assignments: [
-            { name: 'Assignment 1', completed: false, id: 1 },
-            { name: 'Assignment 2', completed: false, id: 2 },
-            { name: 'Assignment 3', completed: false, id: 3 }
-          ]
-        };
-      },
-      computed:{
-        completedAssignments(){
-          return this.assignments.filter(a => a.completed)
+      components: {
+        'app-button':{
+          template: `
+            <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" :disabled="processing">
+              <slot />
+            </button>
+          `,
+          mounted(){
+            console.log('button mounted')
+          },
+          data () {
+            return {
+              processing: false
+            }
+          },
         },
-        inProgressAssignments(){
-          return this.assignments.filter(a => !a.completed)
-        }
       }
     }
     Vue.createApp(app).mount('#app');
