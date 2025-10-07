@@ -12,11 +12,7 @@ export default {
   `,
   data() {
     return {
-      assignments: [
-        { name: 'Assignment 1', completed: false, id: 1, tag: 'math' },
-        { name: 'Assignment 2', completed: false, id: 2, tag: 'science' },
-        { name: 'Assignment 3000', completed: false, id: 3, tag: 'math' }
-      ]
+      assignments: []
     };
   },
   computed:{
@@ -27,6 +23,13 @@ export default {
         inProgress: this.assignments.filter(a => !a.completed)
       }
     }
+  },
+  created () {
+    fetch('http://localhost:3001/assignments')
+      .then(res => res.json())
+      .then(data => {
+        this.assignments = data;
+      });
   },
   methods: {
     add(name) {

@@ -1,0 +1,34 @@
+{
+  "assignments": [
+    {
+      "id": 1,
+      "name": "Finish Vue Screencast",
+      "tag": "work",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "name": "Make dentist appointment",
+      "tag": "personal",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "name": "Clean the house",
+      "tag": "personal",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "name": "Go grocery shopping",
+      "tag": "personal",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "name": "Prepare presentation for Monday",
+      "tag": "work",
+      "completed": false
+    }
+  ]
+}
