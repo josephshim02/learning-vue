@@ -4,5 +4,6 @@ export default {
   components: { Assignments},
   template: `
    <assignments />
+   
   `,
 }
